@@ -27,6 +27,11 @@ public class DepositTest {
             double val = dep2.getTransactionAmount() + dep2.BalanceBefore;
             assertEquals(val, dep2.BalanceAfter, 0.001);
             assertTrue("Transaction is done correctly", val == dep2.BalanceAfter);
+
+
+
+
+
             assertEquals(15490.7, dep2.BalanceBefore, 0.01);
 
         }

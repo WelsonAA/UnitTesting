@@ -82,9 +82,13 @@ public class Account {
     public Account(String userName, String password, Double balance, LocalDate birthDate) {
         UserName = userName;
         Password = password;
-        Balance = balance;
         BirthDate = birthDate;
         AccountNo=id++;
+        if(balance<=0.0){
+            Balance=0.0;
+        }else{
+            this.Balance = balance;
+        }
     }
 
     public Integer getAccountNo() {

@@ -16,6 +16,7 @@ public class Bill {
         return Date;
     }
 
+
     public Double getBalanceBefore() {
         return BalanceBefore;
     }

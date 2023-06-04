@@ -15,3 +15,4 @@ public class Transfer extends Transaction{
         return ReceiverAccountNo;
     }
 }
+

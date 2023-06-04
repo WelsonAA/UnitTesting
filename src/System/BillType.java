@@ -1,5 +1,6 @@
 package System;
 
+
 public enum BillType {
     PURCHASED_ITEMS,
     SCHOOL,

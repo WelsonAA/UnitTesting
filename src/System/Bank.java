@@ -12,13 +12,18 @@ public final class Bank {
             if(temp.equals(Accounts.get(i)))
                 return Accounts.get(i);
         }
-
         return null;
     }
-    public  static void addAccount(Account acc){
+    public static Account check(Integer accountNo){
+        for(int i=0;i<Accounts.size();i++){
+            if(accountNo.equals(Accounts.get(i).getAccountNo()))
+                return Accounts.get(i);
+        }
+        return null;
+    }
+    public static void addAccount(Account acc){
         Accounts.add(acc);
     }
-
     public static ArrayList<Account> getAccounts() {
         return Accounts;
     }

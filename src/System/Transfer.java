@@ -3,16 +3,15 @@ package System;
 import java.time.LocalDate;
 
 public class Transfer extends Transaction{
-    private final String ReceiverAccountNo;
+    private final Integer ReceiverAccountNo;
 
-    public Transfer(Double amount, LocalDate TransactionDate, String receiverAccountNo,Double BalanceBefore) {
+    public Transfer(Double amount, LocalDate TransactionDate, Integer receiverAccountNo,Double BalanceBefore) {
         super(amount, TransactionDate,BalanceBefore);
         this.ReceiverAccountNo = receiverAccountNo;
         super.BalanceAfter=BalanceBefore-amount;
     }
 
-    public String getReceiverAccountNo() {
+    public Integer getReceiverAccountNo() {
         return ReceiverAccountNo;
     }
 }
-

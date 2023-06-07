@@ -4,7 +4,6 @@ import java.time.LocalDate;
 
 public class Bill {
     private Double Amount;
-    private String Description;
     private Integer BillID;
     private BillType billType; //possible to be enum
     private LocalDate Date;
@@ -16,7 +15,6 @@ public class Bill {
         return Date;
     }
 
-
     public Double getBalanceBefore() {
         return BalanceBefore;
     }
@@ -25,9 +23,8 @@ public class Bill {
         return BalanceAfter;
     }
 
-    public Bill(Double amount, String description, BillType bt, LocalDate Date, Double BalanceBefore) {
+    public Bill(Double amount, BillType bt, LocalDate Date, Double BalanceBefore) {
         Amount = amount;
-        Description = description;
         BillID=id++;
         this.billType = bt;
         this.Date=Date;
@@ -39,9 +36,6 @@ public class Bill {
         return Amount;
     }
 
-    public String getDescription() {
-        return Description;
-    }
 
     public Integer getBillID() {
         return BillID;

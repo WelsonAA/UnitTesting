@@ -15,6 +15,7 @@ public class DepositTest {
         {
            Deposit dep1 = new Deposit(500.0, LocalDate.parse("2023-06-23"),myacc.getBalance(), myacc);
             assertEquals(1500.0, dep1.BalanceAfter, 0.001);
+            assertEquals(dep1,myacc.Transactions.get(0));
 
         }
         @Test

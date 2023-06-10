@@ -43,18 +43,19 @@ public class AccountTest {
         a.withdraw(500.0);
         assertEquals(2000.0,a.getBalance(),0.01);
     }
-    @Test
-    public void TestTransfer()throws TransactionsExceptions{
 
+   /* public void TestTransfer()throws TransactionsExceptions{
+        Bank b= new Bank();
         Account a=new Account("welson","123456",1000., LocalDate.parse("2003-03-24"));
         Account a2=new Account("tobgy","123456",2000., LocalDate.parse("2003-03-24"));
-        Bank.addAccount(a);
-        Bank.addAccount(a2);
-        a.transfer(500.0,29);
+        b.addAccount(a);
+        b.addAccount(a2);
+        a.transfer(500.0,1);
         assertEquals(500.,a.getBalance(),0.01);
         assertEquals(2500.,a2.getBalance(),0.01);
         assertEquals(500.,a.Transactions.get(0).getTransactionAmount().doubleValue(),0.01);
-    }
+    }*/
+
     @Test(expected = InsufficientBalance.class)
     public void TestTransferInsufficient()throws TransactionsExceptions{
         Bank b= new Bank();

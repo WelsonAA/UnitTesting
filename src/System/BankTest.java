@@ -171,8 +171,8 @@ public class BankTest {
         assertEquals(4500,account3.getBalance(),0.01);
         Account account4=new Account("Hassan55", "hass2233", LocalDate.parse("2003-03-24"), "Sheraton",
                 "P3123", "425", "5522", "01061952782","Hassan","Mohamed","El-Tobgy");
-
-       Transfer transfer1=new Transfer(500.0, LocalDate.parse("2003-03-24"),1 ,account3.getBalance(),account3);
+        Bank.addAccount(account4);
+       Transfer transfer1=new Transfer(500.0, LocalDate.parse("2003-03-24"),9 ,account3.getBalance(),account3);
        assertEquals(4000,account3.getBalance(),0.01);
        assertEquals(500,account4.getBalance(),0.01);
 
@@ -184,8 +184,7 @@ public class BankTest {
 
         assertEquals("Error insuffient balance or Error in billtype",stubpaybill1.check(5000,"Electricity"));
         assertEquals("Error insuffient balance or Error in billtype",stubpaybill1.check(1000,"school"));
-
-
+        assertEquals("Error insuffient balance or Error in billtype",stubpaybill1.check(1000,"hospital"));
 
 
 
@@ -208,30 +207,20 @@ public class BankTest {
 
 
         Deposit deposit1= new Deposit(5000.0, LocalDate.parse("2003-03-24"),account3.getBalance(),account3);
-        assertEquals(5000,account3.getBalance(),0.01);
+        assertEquals(5000.0,account3.getBalance(),0.01);
 
         Withdraw withdraw1=new Withdraw(500.0, LocalDate.parse("2003-03-24"), account3.getBalance(), account3) ;
         assertEquals(4500,account3.getBalance(),0.01);
-        Account account4=new Account("zeina", "hass2233", LocalDate.parse("2003-03-24"), "Sheraton",
+        Account account4=new Account("Hassan55", "hass2233", LocalDate.parse("2003-03-24"), "Sheraton",
                 "P3123", "425", "5522", "01061952782","Hassan","Mohamed","El-Tobgy");
-
-      /*  Transfer transfer1=new Transfer(500, LocalDate.parse("2003-03-24"),9 ,account3.getBalance(),account3) throws TransactionsExceptions
+        Bank.addAccount(account4);
+        Transfer transfer1=new Transfer(500.0, LocalDate.parse("2003-03-24"),11 ,account3.getBalance(),account3);
         assertEquals(4000,account3.getBalance(),0.01);
         assertEquals(500,account4.getBalance(),0.01);
 
-        StubPaybill stubpaybill1=new StubPaybill();
-        assertEquals("Bill paied Successfully",stubpaybill1.check(1000,"Electricity"));
-        assertEquals("Bill paied Successfully",stubpaybill1.check(500,"Electricity"));
-        assertEquals("Bill paied Successfully",stubpaybill1.check(16,"Electricity"));
-        assertEquals("Bill paied Successfully",stubpaybill1.check(32,"Electricity"));
 
-        assertEquals("Error insuffient balance or Error in billtype",stubpaybill1.check(5000,"Electricity"));
-        assertEquals("Error insuffient balance or Error in billtype",stubpaybill1.check(1000,"school"));
-
-      / account3.payBill(1000.0,BillType.ELECTRICITY);
-        assertEquals(3000,account3.getBalance());
-
-*/
+        account3.payBill(1000.0,BillType.ELECTRICITY);
+        assertEquals(3000.,account3.getBalance(),0.01);
 
 
 

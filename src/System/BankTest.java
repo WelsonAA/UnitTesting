@@ -1,5 +1,6 @@
 package System;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.time.LocalDate;
@@ -44,5 +45,6 @@ public class BankTest {
         Bank.Accounts.add(A1);
         assertEquals(LocalDate.parse("2001-08-30"),Bank.Accounts.get(0).getBirthDate());
     }
+
 
 }

@@ -17,7 +17,7 @@ public class AccountTest {
         assertEquals("2003-03-24",a.getBirthDate().toString());
         assertEquals(2500.0,a.getBalance(),0.1);
     }
-    @Test
+    @Test(timeout = 123456)
     public void TestConstructor2() {
         Account a=new Account("welson","123456",-2500.0, LocalDate.parse("2003-03-24"));
         assertEquals("welson",a.getUserName());
@@ -26,7 +26,17 @@ public class AccountTest {
         assertEquals(0.0,a.getBalance(),0.1);
     }
     @Test
-    public void TestDeposit(){
+    public void TestDeposit()throws TransactionsExceptions{
+        Account a=new Account("welson","123456",2500.0, LocalDate.parse("2003-03-24"));
+        a.deposit(500.0);
+        assertEquals(3000.0,a.getBalance(),0.01);
+    }
+
+    @Test
+    public void TestWithdraw()throws TransactionsExceptions{
+        Account a=new Account("welson","123456",2500.0, LocalDate.parse("2003-03-24"));
+        a.withdraw(500.0);
+        assertEquals(2000.0,a.getBalance(),0.01);
     }
 
 }

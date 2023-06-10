@@ -5,11 +5,11 @@ import java.util.Objects;
 
 
 public class Account {
-    private Integer AccountNo;
+    public Integer AccountNo;
     public String firstName, middleName,lastName;
-    private String UserName;
+    public String UserName;
     private String Password;
-    private Double Balance;
+    public Double Balance;
     private LocalDate BirthDate;
     public String notification;
     public Account(String userName, String password) {

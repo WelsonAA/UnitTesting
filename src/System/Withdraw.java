@@ -17,7 +17,6 @@ public class Withdraw extends Transaction{
         else
         {
             acc.Transactions.add(this);
-            this.BalanceBefore -= amount;
             acc.notification+="Successful Withdraw -"+amount+"\n";
         }
         BalanceAfter=BalanceBefore-amount;

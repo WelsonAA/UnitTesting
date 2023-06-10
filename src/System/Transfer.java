@@ -18,8 +18,6 @@ public class Transfer extends Transaction{
         else {
 
             acc.Transactions.add(this);
-            this.BalanceBefore -= amount;
-
             acc.notification+="Successful Transfer -"+amount+"\n";
         }
         this.ReceiverAccountNo = receiverAccountNo;

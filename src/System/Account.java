@@ -30,7 +30,7 @@ public class Account {
     public LocalDate getBirthDate() {
         return BirthDate;
     }
-    static int id=0;
+   public static int id=0;
     private String SSN;
     private String CardNo;
     private String TelephoneNo;

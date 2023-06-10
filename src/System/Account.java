@@ -34,63 +34,33 @@ public class Account {
     private String SSN;
     private String CardNo;
     private String TelephoneNo;
-    ArrayList<Transaction> Transactions=new ArrayList<Transaction>();
+    public ArrayList<Transaction> Transactions=new ArrayList<Transaction>();
     ArrayList<Bill> Bills=new ArrayList<Bill>();
 
     public void withdraw(Double amount)throws TransactionsExceptions{
-        if(amount>Balance){
-            throw new InsufficientBalance();
-        }else if(amount<=0){
-            throw new InvalidAmount();
-        }
-        else {
-            Withdraw w =new Withdraw(amount,LocalDate.now(),this.getBalance());
-            Transactions.add(w);
-            this.Balance -= amount;
-            this.notification+="Successful Withdraw -"+amount+"\n";
-        }
+
+        Withdraw w =new Withdraw(amount,LocalDate.now(),this.getBalance(),this);
     }
     public void deposit(Double amount)throws TransactionsExceptions{
-        if(amount<=0){
-            throw new InvalidAmount();
-        }else {
-            Deposit d = new Deposit(amount, LocalDate.now(), this.getBalance());
-            Transactions.add(d);
-            this.Balance += amount;
 
-            this.notification+="Successful Deposit +"+amount+"\n";
-        }
+            Deposit d = new Deposit(amount, LocalDate.now(), this.getBalance(),this);
+
     }
 
     public void transfer(Double amount,Integer receiverAccountNo)throws TransactionsExceptions {
 
-        if(amount>Balance){
-            throw new InsufficientBalance();
-        }else if(amount<=0){
-            throw new InvalidAmount();
-        }else if(Bank.check(receiverAccountNo)==null){
-            throw new InvalidAccountNo();
-        }
-        else {
-            Transfer t =new Transfer(amount,LocalDate.now(),receiverAccountNo,this.getBalance());
-            Transactions.add(t);
-            this.Balance -= amount;
+        Transfer t =new Transfer(amount,LocalDate.now(),receiverAccountNo,this.getBalance(),this);
 
-            this.notification+="Successful Transfer -"+amount+"\n";
-        }
     }
     public void payBill(Double amount, BillType bt)throws TransactionsExceptions{
-        if(amount>Balance){
-            throw new InsufficientBalance();
-        }else if(amount<=0){
-            throw new InvalidAmount();
-        }else {
-            Bill b=new Bill(amount,bt,LocalDate.now(),this.getBalance());
+
+
+            Bill b=new Bill(amount,bt,LocalDate.now(),this);
             Bills.add(b);
             this.Balance -= amount;
 
             this.notification+="Successful Bill Payment -"+amount+"\n";
-        }
+
     }
 
     @Override

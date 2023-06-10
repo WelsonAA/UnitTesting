@@ -24,6 +24,7 @@ public final class Bank {
     }
     public static void addAccount(Account acc){
         Accounts.add(acc);
+        int x=0;
     }
     public static ArrayList<Account> getAccounts() {
         return Accounts;

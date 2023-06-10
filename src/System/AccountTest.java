@@ -45,12 +45,12 @@ public class AccountTest {
     }
     @Test
     public void TestTransfer()throws TransactionsExceptions{
-        Bank b= new Bank();
+
         Account a=new Account("welson","123456",1000., LocalDate.parse("2003-03-24"));
         Account a2=new Account("tobgy","123456",2000., LocalDate.parse("2003-03-24"));
-        b.addAccount(a);
-        b.addAccount(a2);
-        a.transfer(500.0,1);
+        Bank.addAccount(a);
+        Bank.addAccount(a2);
+        a.transfer(500.0,29);
         assertEquals(500.,a.getBalance(),0.01);
         assertEquals(2500.,a2.getBalance(),0.01);
         assertEquals(500.,a.Transactions.get(0).getTransactionAmount().doubleValue(),0.01);

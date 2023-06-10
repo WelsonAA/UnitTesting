@@ -15,7 +15,7 @@ public class Withdraw extends Transaction{
             throw new InvalidAmount();
         }
         else
-        {
+        {   acc.Balance-=amount;
             acc.Transactions.add(this);
             acc.notification+="Successful Withdraw -"+amount+"\n";
         }

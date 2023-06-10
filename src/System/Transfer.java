@@ -16,7 +16,8 @@ public class Transfer extends Transaction{
             throw new InvalidAccountNo();
         }
         else {
-
+            acc.Balance-=amount;
+            Bank.check(receiverAccountNo).Balance+=amount;
             acc.Transactions.add(this);
             acc.notification+="Successful Transfer -"+amount+"\n";
         }

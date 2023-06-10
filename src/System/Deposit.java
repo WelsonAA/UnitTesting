@@ -13,9 +13,9 @@ public class Deposit extends Transaction {
             throw new InvalidAmount();
         }
         else {
-
-            acc.Transactions.add(this);
             acc.Balance += amount;
+            acc.Transactions.add(this);
+
             acc.notification+="Successful Deposit +"+amount+"\n";
         }
         super.BalanceAfter=BalanceBefore+amount;

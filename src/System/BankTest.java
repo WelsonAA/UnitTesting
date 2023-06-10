@@ -87,10 +87,91 @@ public class BankTest {
 
        StubDeposit stubdeposit3=new StubDeposit(2000.0, 01111); //account not registered
        assertEquals("Deposit failed",stubdeposit3.check());
+    }
+    @Test
+    public void Integration3() throws TransactionsExceptions
+    {
+
+        Bank bankint2=new Bank();
+        Account account2=new Account("hassaneltobgy", "hass2233", LocalDate.parse("2003-03-24"), "Sheraton",
+                "P3123", "032014714", "5522", "01061952782","Hassan","Mohamed","El-Tobgy");
+
+        Deposit deposit1= new Deposit(1000.0, LocalDate.parse("2003-03-24"),account2.getBalance(),account2);
+        assertEquals(1000.0,account2.getBalance(),0.01);
+
+        StubWithdraw withdraw1=new StubWithdraw();
+        assertEquals("Withdrawal Done",withdraw1.check(1500));
+        assertEquals("No Sufficient Balance",withdraw1.check(3000));
+
+        StubWithdraw withdraw2=new StubWithdraw();
+        assertEquals("Withdrawal Done",withdraw2.check(1000));
+        assertEquals("No Sufficient Balance",withdraw2.check(4000));
+        StubWithdraw withdraw3=new StubWithdraw();
+        assertEquals("Withdrawal Done",withdraw3.check(500));
+        assertEquals("No Sufficient Balance",withdraw3.check(5000));
+    }
+    @Test
+    public void Integration4() throws TransactionsExceptions
+    {
+
+        Bank bankint2=new Bank();
+        Account account3=new Account("hassaneltobgy", "hass2233", LocalDate.parse("2003-03-24"), "Sheraton",
+                "P3123", "032014714", "5522", "01061952782","Hassan","Mohamed","El-Tobgy");
+        assertEquals("hassaneltobgy",account3.getUserName());
+        assertEquals("hass2233",account3.getPassword());
+        assertEquals("P3123",account3.getZipCode());
+        assertEquals("032014714",account3.getSSN());
+        assertEquals("5522",account3.getCardNo());
+        assertEquals("01061952782",account3.getTelephoneNo());
+
+
+        Deposit deposit1= new Deposit(1000.0, LocalDate.parse("2003-03-24"),account3.getBalance(),account3);
+        assertEquals(1000,account3.getBalance(),0.01);
+
+        Withdraw withdraw1=new Withdraw(500.0, LocalDate.parse("2003-03-24"), account3.getBalance(), account3) ;
+        assertEquals(500,account3.getBalance(),0.01);
+
+        StubTransfer stubtransfer1=new StubTransfer();
+        assertEquals("Transfer done successfully",stubtransfer1.check(1000,55221));
+        assertEquals("Transfer failed",stubtransfer1.check(6000,55221));
+        assertEquals("Transfer failed",stubtransfer1.check(1000,552221));
+        assertEquals("Transfer done successfully",stubtransfer1.check(400,55221));
+        assertEquals("Transfer failed",stubtransfer1.check(5000,87121));
+    }
+    @Test
+    public void Integration5()throws TransactionsExceptions
+    {
+
+        Bank bankint2=new Bank();
+        Account account3=new Account("hassaneltobgy", "hass2233", LocalDate.parse("2003-03-24"), "Sheraton",
+                "P3123", "032014714", "5522", "01061952782","Hassan","Mohamed","El-Tobgy");
+        assertEquals("hassaneltobgy",account3.getUserName());
+        assertEquals("hass2233",account3.getPassword());
+        assertEquals("P3123",account3.getZipCode());
+        assertEquals("032014714",account3.getSSN());
+        assertEquals("5522",account3.getCardNo());
+        assertEquals("01061952782",account3.getTelephoneNo());
+
+
+        Deposit deposit1= new Deposit(5000.0, LocalDate.parse("2003-03-24"),account3.getBalance(),account3);
+        assertEquals(5000.0,account3.getBalance(),0.01);
+
+        Withdraw withdraw1=new Withdraw(500.0, LocalDate.parse("2003-03-24"), account3.getBalance(), account3) ;
+        assertEquals(4500,account3.getBalance(),0.01);
+        Account account4=new Account("zeina", "hass2233", LocalDate.parse("2003-03-24"), "Sheraton",
+                "P3123", "425", "5522", "01061952782","Hassan","Mohamed","El-Tobgy");
+
+        Transfer transfer1=new Transfer(500.0, LocalDate.parse("2003-03-24"),9 ,account3.getBalance(),account3);
+        assertEquals(4000,account3.getBalance(),0.01);
+        assertEquals(500,account4.getBalance(),0.01);
+
+
+
+
+
 
 
 
     }
-
 
 }

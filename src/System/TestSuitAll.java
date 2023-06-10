@@ -13,7 +13,8 @@ import org.junit.runners.Suite;
                 DepositTest.class,
                 TransferTest.class,
                 WithdrawTest.class,
-                TransactionTest.class
+                TransactionTest.class,
+                AccountTest.class
 
         }
 )

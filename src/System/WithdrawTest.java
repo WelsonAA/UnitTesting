@@ -32,9 +32,6 @@ public class WithdrawTest {
         Withdraw w4= new Withdraw(1212.0, LocalDate.parse("2023-05-30"), myacc.getBalance(),myacc);
         assertTrue(" Insufficent amount",w4.getTransactionAmount()<= w4.BalanceBefore);
     }
-
-
-
     @Test
     public void withdraw5()throws TransactionsExceptions
 

@@ -18,7 +18,8 @@ public class AccountTest {
         assertEquals(2500.0,a.getBalance(),0.1);
     }
     @Test(timeout = 123456)
-    public void TestConstructor2() {
+    public void TestConstructor2()
+    {
         Account a=new Account("welson","123456",-2500.0, LocalDate.parse("2003-03-24"));
         assertEquals("welson",a.getUserName());
         assertEquals("123456",a.getPassword());
